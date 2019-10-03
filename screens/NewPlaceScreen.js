@@ -17,7 +17,7 @@ import * as placesActions from "../store/places-actions";
 
 const NewPlaceScreen = props => {
   const [titleValue, setTitleValue] = useState("");
-  const [selectedImage, setSelectedImage] = useState("");
+  const [selectedImage, setSelectedImage] = useState();
   const [selectedLocation, setSelectedLocation] = useState();
 
   const dispatch = useDispatch();
@@ -32,6 +32,9 @@ const NewPlaceScreen = props => {
   };
 
   const savePlaceHandler = () => {
+    console.log("Title of place is " + titleValue);
+    console.log("Image is ", selectedImage);
+    console.log("Location is  ", selectedLocation);
     dispatch(
       placesActions.addPlace(titleValue, selectedImage, selectedLocation)
     );

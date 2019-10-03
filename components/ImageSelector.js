@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Button, Text, Image, Alert, StyleSheet } from "react-native";
+import { View, Button, Image, Alert, StyleSheet } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 import * as Permissions from "expo-permissions";
 import Colors from "../constants/Colors";
@@ -41,35 +41,35 @@ const ImgPicker = ({ onImageTaken }) => {
   };
 
   return (
-    <View style={styles.ImagePicker}>
-      <View style={styles.ImagePreview}>
+    <View style={styles.imagePicker}>
+      <View style={styles.imagePreview}>
         {!pickedImage ? (
-          <Text>No image picked.</Text>
+          <Button
+            title="Take image"
+            color={Colors.primary}
+            onPress={takeImageHandler}
+          />
         ) : (
           <Image style={styles.image} source={{ uri: pickedImage }} />
         )}
-        <Button
-          title="Take image"
-          color={Colors.primary}
-          onPress={takeImageHandler}
-        />
       </View>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
-  ImagePicker: {
+  imagePicker: {
     alignItems: "center",
     marginBottom: 15
   },
   imagePreview: {
     width: "100%",
     height: 200,
+    marginBottom: 10,
     justifyContent: "center",
     alignItems: "center",
     borderColor: "#ccc",
-    borderWidth: 4
+    borderWidth: 1
   },
   image: {
     width: "100%",

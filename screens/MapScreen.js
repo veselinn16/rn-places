@@ -22,15 +22,6 @@ const MapScreen = ({ navigation }) => {
     longitudeDelta: 0.0421
   };
 
-  let markerCoordinates;
-
-  if (selectedLocation) {
-    markerCoordinates = {
-      latitude: selectedLocation.lat,
-      longitude: selectedLocation.lng
-    };
-  }
-
   const selectLocation = event => {
     if (readonly) return;
     setSelectedLocation({
@@ -52,6 +43,15 @@ const MapScreen = ({ navigation }) => {
   useEffect(() => {
     navigation.setParams({ saveLocation: savePickedLocation });
   }, [savePickedLocation]);
+
+  let markerCoordinates;
+
+  if (selectedLocation) {
+    markerCoordinates = {
+      latitude: selectedLocation.lat,
+      longitude: selectedLocation.lng
+    };
+  }
 
   return (
     <MapView style={styles.map} region={mapRegion} onPress={selectLocation}>

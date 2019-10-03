@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { View, Text, StyleSheet, Platform, FlatList } from "react-native";
+import { StyleSheet, Platform, FlatList } from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import { useSelector, useDispatch } from "react-redux";
 import * as placesActions from "../store/places-actions";
@@ -28,7 +28,6 @@ const PlacesListScreen = ({ navigation }) => {
               placeId: item.id
             })
           }
-          image={null}
           title={item.title}
           address={item.address}
         />
